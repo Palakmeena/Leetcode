@@ -10,19 +10,27 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-    
-        ListNode prev = null;
-        ListNode current = head;
 
-        while (current != null) {
-            ListNode nextTemp = current.next; // Save the next node
-            current.next = prev; // Reverse the link
-            prev = current; // Move prev forward
-            current = nextTemp; // Move current forward
+        if(head==null){
+            return head;
+        }
+        ListNode prev=null;
+        ListNode pres=head;
+        ListNode nextNode=pres.next;
+
+        while(pres!=null){
+            pres.next=prev;
+            prev=pres;
+            pres=nextNode;
+            if(nextNode!=null){
+            nextNode=nextNode.next;
+            }
         }
 
-        return prev; // Prev will be the new head after the loop ends
+        
+
+        
+
+        return prev;
     }
 }
-
-    
